@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Bolle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <audio id="myAudio" src="vittoria.mp3"></audio>
+    <div id="homepage">
+        <img src="img/title.png" alt="" id="img_title">
+        <div id="button_container1">
+            <button class="button" onclick="inizio_gioco()">Gioca ora</button>
+            <button class="button" onclick="spiegazione()">Spiegazione</button>
+        </div>
+
+    </div>
+    <div id="princ">
+        <div class="container">
+            <h1 id="richiesta"></h1>        
+            <img src="img/icon1.png" alt="Info" id="info" onclick="spiegazione()">
+        </div>
+
+
+        <canvas id="canvas" width="550" height="310"></canvas>
+    </div>
+    <div id="gioco_1">
+        <div class="container">
+            <h1 id="title"> In base alle lettere che vedi, seleziona le parole con le iniziali corrispondenti!</h1>
+            <img src="img/icon1.png" alt="Info" id="info" onclick="spiegazione_1()">
+        </div>
+        <canvas id="canvas_1" width="1050" height="910">
+        </canvas>
+        <div id="button_container"></div>
+
+    </div>
+    <div id="gioco_2">
+        <center>
+            <div class="container">
+                <h1>Completa le figure trascinando la metà a quella corrispondente!</h1>
+                <img src="img/icon1.png" alt="Info" id="info" onclick="spiegazione_2()">
+            </div>
+        <canvas id="canvas_2" width="600" height="200"></canvas>
+        <div id="draggableCircle"></div>
+        <div id="draggableTrapezoid"></div>
+        <div id="draggableStar"></div>
+        <div id="draggableSquare"></div><br>
+        <button id="controlla" onclick="controllo_fig()">
+            Controlla
+        </button>
+    </center>
+    </div>
+    <div id="gioco_3">
+        <div class="container">
+            <h1>Ordina le figure in base al numero dei lati!</h1>
+            <img src="img/icon1.png" alt="Info" id="info" onclick="spiegazione_3()">
+        </div>
+        <h1>Figure da ordinare</h1>
+        <div id="startCanvases">
+            <div class="canvas-container"><canvas id="startCanvas1" width="150" height="150"></canvas></div>
+            <div class="canvas-container"><canvas id="startCanvas2" width="150" height="150"></canvas></div>
+            <div class="canvas-container"><canvas id="startCanvas3" width="150" height="150"></canvas></div>
+            <div class="canvas-container"><canvas id="startCanvas4" width="150" height="150"></canvas></div>
+            <div class="canvas-container"><canvas id="startCanvas5" width="150" height="150"></canvas></div>
+        </div>
+
+        <h1>Figure ordinate</h1>
+        <div id="endCanvases">
+            <div class="canvas-container">3 lati<canvas id="endCanvas1" width="150" height="150"></canvas></div>
+            <div class="canvas-container">4 lati<canvas id="endCanvas2" width="150" height="150"></canvas></div>
+            <div class="canvas-container">5 lati<canvas id="endCanvas3" width="150" height="150"></canvas></div>
+            <div class="canvas-container">6 lati<canvas id="endCanvas4" width="150" height="150"></canvas></div>
+            <div class="canvas-container">7 lati<canvas id="endCanvas5" width="150" height="150"></canvas></div>
+        </div>
+        <canvas id="movingShape" width="100" height="100"></canvas> <!-- Figura mobile -->
+    </div>
+    <div id="victory" class="popup-wrap">
+        <div class="popup-box">
+            <img src="img/giphy.gif" alt="">
+            <h1 id="punteggio"></h1>
+            <button id="closeBtnBis" class="popup-close" onclick="chiudiPopup()">Rigioca</button>
+        </div>
+        </div>
+        <div id="lost" class="popup-wrap">
+            <div class="popup-box">
+                <img src="img/lost.png" alt="">
+                <h1 id="punteggio1"></h1>
+                <button id="closeBtnBis1" class="popup-close" onclick="chiudiPopup()">Rigioca</button>
+            </div>
+            </div>
+    <script src="js/script.js"></script> 
+</body>
+</html>
